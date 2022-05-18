@@ -1,0 +1,64 @@
+{% apply spaceless %}
+    <!DOCTYPE html>
+    <html lang="en" class="h-full">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>{{ code }} - {{ title }}</title>
+
+        {% if shouldAutoRefresh ?? false %}
+            <meta http-equiv="refresh" content="10">
+        {% endif %}
+
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,400i,500,700" rel="stylesheet">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        fontFamily: {
+                            'sans': ['Roboto', 'Arial'],
+                        },
+                        colors: {
+                            brand: '#0693d0',
+                        }
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body class="min-h-screen flex flex-col">
+
+    <header class="md:absolute mb-8 top-0 left-0 right-0 pt-6 flex justify-center px-4">
+        <a href="https://crewplanner.com" target="_blank" rel="noopener">
+            <img src="https://crewplanner.com/img/logo-crewplanner-black.svg" alt="CrewPlanner logo" width="200">
+        </a>
+    </header>
+
+    <div class="max-w-4xl w-full mx-auto md:my-auto px-4">
+        <div class="grid md:grid-cols-2 items-center gap-12">
+            <div class="max-w-sm flex items-center hidden sm:block">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 791.85 791.85"><defs><style>.cls-1,.cls-5{fill:#eee;}.cls-2,.cls-3{fill:#fff;}.cls-2,.cls-3,.cls-4,.cls-5{stroke:#0693d0;}.cls-2,.cls-4,.cls-5{stroke-linejoin:round;stroke-width:5px;}.cls-3{stroke-miterlimit:10;}.cls-4{fill:none;}</style></defs><circle class="cls-1" cx="395.92" cy="395.92" r="395.92"/><path class="cls-2" d="M326.76,316.65H382.1a1,1,0,0,1,1,1v33.4a0,0,0,0,1,0,0H325.76a0,0,0,0,1,0,0v-33.4A1,1,0,0,1,326.76,316.65Z"/><rect class="cls-3" x="176.68" y="351.05" width="229.35" height="91.74" rx="1" ry="1"/><path class="cls-2" d="M200.62,316.65H256a1,1,0,0,1,1,1v33.4a0,0,0,0,1,0,0H199.62a0,0,0,0,1,0,0v-33.4A1,1,0,0,1,200.62,316.65Z"/><rect class="cls-2" x="176.68" y="442.79" width="229.35" height="91.74" rx="1" ry="1"/><rect class="cls-4" x="176.68" y="351.05" width="229.35" height="91.74" rx="1" ry="1"/><rect class="cls-3" x="315.24" y="271.77" width="229.35" height="91.74" rx="1" ry="1" transform="translate(273.69 -193.55) rotate(36.55)"/><rect class="cls-4" x="315.24" y="271.77" width="229.35" height="91.74" rx="1" ry="1" transform="translate(273.69 -193.55) rotate(36.55)"/><path class="cls-2" d="M389.13,212.21h55.34a1,1,0,0,1,1,1v33.4a0,0,0,0,1,0,0H388.13a0,0,0,0,1,0,0v-33.4a1,1,0,0,1,1-1Z" transform="translate(218.57 -203.09) rotate(36.55)"/><path class="cls-2" d="M489.47,287.33H546.8a0,0,0,0,1,0,0v33.4a1,1,0,0,1-1,1H490.47a1,1,0,0,1-1-1v-33.4a0,0,0,0,1,0,0Z" transform="translate(753.03 857.73) rotate(-143.45)"/><rect class="cls-5" x="294.58" y="402.66" width="315.35" height="172.01" rx="1" ry="1"/><circle class="cls-2" cx="416.42" cy="452.83" r="21.5"/><circle class="cls-2" cx="344.75" cy="452.83" r="21.5"/><circle class="cls-2" cx="344.75" cy="524.5" r="21.5"/><circle class="cls-2" cx="488.09" cy="452.83" r="21.5"/><circle class="cls-2" cx="559.76" cy="452.83" r="21.5"/><circle class="cls-2" cx="416.42" cy="524.5" r="21.5"/><circle class="cls-2" cx="488.09" cy="524.5" r="21.5"/><circle class="cls-2" cx="559.76" cy="524.5" r="21.5"/></svg>
+            </div>
+
+            <div>
+                <h1 class="text-[160px] leading-none font-bold text-brand">{{ code }}</h1>
+                <h2 class="uppercase text-3xl mb-2 font-bold">{{ title }}</h2>
+                <p class="text-gray-500 font-light text-lg">{{ text|raw }}</p>
+
+                <div class="flex gap-2 mt-4">
+                    <a href="https://status.crewplanner.com" target="_blank" class="block px-5 py-3 text-sm font-light uppercase tracking-wider bg-brand text-white border border-brand">
+                        View CrewPlanner status
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <a href="https://help.crewplanner.com" target="_blank" rel="noopener" class="bg-brand rounded-full fixed bottom-0 right-0 mb-[20px] mr-[20px] w-[60px] h-[60px] z-10 flex items-center justify-center" style="box-shadow: 0 1px 6px 0 rgb(0 0 0 / 6%), 0 2px 32px 0 rgb(0 0 0 / 16%);">
+            <img src="https://crewplanner.com/img/crewplanner-intercom-icon.png" alt="Support" class="w-[36px] h-[36px] -scale-x-100">
+        </a>
+
+    </body>
+    </html>
+{% endapply %}
